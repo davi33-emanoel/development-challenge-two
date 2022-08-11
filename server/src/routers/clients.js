@@ -2,8 +2,9 @@ const express = require('express');
 const Client = require('../models/client');
 const clientRouter = express.Router();
 
-clientRouter.get('/client', (req, res) => {
-    res.send('Hello World!');
+clientRouter.get('/client', async (req, res) => {
+    const client = await Client.scan().exec();
+    return res.json({client});
 })
 
 clientRouter.post('/client', async (req, res) => {
@@ -12,13 +13,13 @@ clientRouter.post('/client', async (req, res) => {
 })
 
 clientRouter.put('/client/:id', async (req, res) => {
-    
-    return ;
+    const client = await Client.update(req.params.id,req.body);
+    return res.json(client);
 })
 
 clientRouter.delete('/client/:id', async (req, res) => {
-
-    return ;
+    await Client.delete(req.params.id);
+    return res.json({msg: `Cliente ${req.params.id} deletado`});
 })
 
 module.exports = clientRouter;
