@@ -1,7 +1,8 @@
 const express = require('express');
-const Client = require('./models/client');
+const clientRouter = require('./routers/clients')
 const app = express();
 app.use(express.json());
+app.use(clientRouter);
 const port = 5000;
 
 
