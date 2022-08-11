@@ -1,7 +1,11 @@
 const dynamoose = require('dynamoose');
- dynamoose.AWS.config.update({
-    region: "sa-east-1"
+const dotenv = require('dotenv');
+
+dotenv.config();
+ dynamoose.aws.sdk.config.update({
+    region: "sa-east-1",
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_KEY
  });
-dynamoose.local();
 
 module.exports = dynamoose;
