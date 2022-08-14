@@ -7,7 +7,7 @@ import {
     Box
   } from "@mui/material";
   import * as React from "react";
-  export const Form: React.FC = () => {
+  export const Form = () => {
     return (
      <div style={{marginTop:"130px", display:"flex",alignItems:"center", 
      flexFlow:"wrap",justifyContent:"space-between",

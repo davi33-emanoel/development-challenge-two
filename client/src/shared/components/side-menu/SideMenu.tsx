@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import {MuiDrawer} from '../drawer/Index'
 
-export const SideMenu: React.FC = () => {
+export const SideMenu = () => {
   const listStyle3 = {
     background: '#002137',
   }
