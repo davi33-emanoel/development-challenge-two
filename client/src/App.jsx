@@ -3,6 +3,7 @@ import { BrowserRouter} from 'react-router-dom';
 import { AppRoutes } from './routes';
 import {SideMenu} from './shared/components/index.ts'
 import {Form} from './shared/components/index.ts'
+import {DataTable} from './shared/components/list/List'
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
     <SideMenu>
     <AppRoutes/>
     </SideMenu>
-    <Form></Form>
+    <DataTable></DataTable>
     </BrowserRouter>
   )
 }
