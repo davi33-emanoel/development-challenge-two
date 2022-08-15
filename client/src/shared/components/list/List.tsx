@@ -6,52 +6,56 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { IconButton } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
 
 function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number,
+  nome: string,
+  aniversario: Date,
+  email: String,
+  endereco: String,
+  actions: String
 ) {
-  return { name, calories, fat, carbs, protein };
+  return { nome, aniversario, email, endereco, actions };
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('Davi Emannoel Lopeeqweqwewqeqwqwewqeqweewdasdasdasdsadasdasdqeqweqweqweqweeqweqweqwewqeqwqwqweqwewqeqweqweqweqweqwewqeqweqweqweweqwewqeqwewqeqwewqewqeqweqweqweqwewqqweqwewqes de Souza',new Date(1995,11,17), 'emanoeldavi3333qweqwewqeqwqwqweqwewqeqweqweqweqweqwewqe348@gmail.com', "Rua:balallaallala numero:20 cidade:acreaaaaaasasasasasasasasRua:balallaallala numero:20 cidade:acreaaaaaasasasasasasasasRua:balallaallala numero:20 cidade:acreaaaaaasasasasasasasasRua:balallaallala numero:20 cidade:acreaaaaaasasasasasasasasRua:balallaallala numero:20 cidade:acreaaaaaasasasasasasasas",''),
+  createData('Ice cream sandwich',new Date(1995,11,17),'example@email.com', "Rua:balallaallala numero:20 cidade:acre",''),
+  createData('Eclair',new Date(1995,11,17),'example@email.com', "Rua:balallaallala numero:20 cidade:acre",''),
+  createData('Cupcake',new Date(1995,11,17), 'example@email.com', "Rua:balallaallala numero:20 cidade:acre",''),
+  createData('Gingerbread',new Date(1995,11,17), 'example@email.com', "Rua:balallaallala numero:20 cidade:acre",''),
 ];
 
-export const DataTable=() => {
+export const DataTable= () => {
   return (
-    <TableContainer component={Paper} sx={{marginTop:"130px", maxWidth: 650,backgroundColor:"rgba(255,255,255,1)", borderRadius:"10px",
-    boxShadow:"0px -5px 15px rgba(255,255,255,0.8)", marginLeft:"350px"}}>
-      <Table sx={{ minWidth: 650}} size="small" aria-label="a dense table">
+    <TableContainer component={Paper} sx={{marginTop:"30px", width:990,backgroundColor:"rgba(255,255,255,1)", borderRadius:"10px",
+    boxShadow:"0px -5px 15px rgba(255,255,255,0.8)", marginLeft:"200px"}}>
+      <Table size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat=matheus&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell align="inherit">Nome</TableCell>
+            <TableCell align="inherit">Aniversario</TableCell>
+            <TableCell align="inherit">Email</TableCell>
+            <TableCell align="inherit">Edereço</TableCell>
+            <TableCell align="inherit">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow
-              key={row.name}
+              key={row.nome}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
-                {row.name}
+              <TableCell component="th" scope="row" sx={{width:200,wordBreak:'break-word'}} >
+                {row.nome}
               </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="inherit" sx={{width:79,wordBreak:'break-word'}}>{row.aniversario.toLocaleDateString()}</TableCell>
+              <TableCell align="inherit" sx={{width:220,wordBreak:'break-word'}}>{row.email}</TableCell>
+              <TableCell align="inherit"sx={{width:200, wordBreak:'break-word'}}>{row.endereco}</TableCell>
+              <TableCell align="inherit" sx={{width:80,wordBreak:'break-word'}}>{row.actions}<IconButton  sx={{color:'#0094e0'}}><EditIcon></EditIcon></IconButton><IconButton sx={{color:'#0094e0'}}><DeleteIcon></DeleteIcon></IconButton></TableCell>
+              
             </TableRow>
           ))}
         </TableBody>
