@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
+import { SideMenu } from '../side-menu/SideMenu';
 
 function createData(
   nome: string,
@@ -30,8 +31,10 @@ const rows = [
 
 export const DataTable= () => {
   return (
+    <>
+    <SideMenu></SideMenu>
     <TableContainer component={Paper} sx={{marginTop:"30px", width:990,backgroundColor:"rgba(255,255,255,1)", borderRadius:"10px",
-    boxShadow:"0px -5px 15px rgba(255,255,255,0.8)", marginLeft:"200px"}}>
+    boxShadow:"0px -5px 15px rgba(255,255,255,0.8)", marginLeft:"150px"}}>
       <Table size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
@@ -54,12 +57,13 @@ export const DataTable= () => {
               <TableCell align="inherit" sx={{width:79,wordBreak:'break-word'}}>{row.aniversario.toLocaleDateString()}</TableCell>
               <TableCell align="inherit" sx={{width:220,wordBreak:'break-word'}}>{row.email}</TableCell>
               <TableCell align="inherit"sx={{width:200, wordBreak:'break-word'}}>{row.endereco}</TableCell>
-              <TableCell align="inherit" sx={{width:80,wordBreak:'break-word'}}>{row.actions}<IconButton  sx={{color:'#0094e0'}}><EditIcon></EditIcon></IconButton><IconButton sx={{color:'#0094e0'}}><DeleteIcon></DeleteIcon></IconButton></TableCell>
+              <TableCell align="inherit" sx={{width:80,wordBreak:'break-word'}}>{row.actions}<IconButton  sx={{color:'#0094e0'}} contentEditable={true}><EditIcon></EditIcon></IconButton><IconButton sx={{color:'#0094e0'}}><DeleteIcon></DeleteIcon></IconButton></TableCell>
               
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
+    </>
   );
 }
