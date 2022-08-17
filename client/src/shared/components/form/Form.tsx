@@ -8,6 +8,8 @@ import {
   } from "@mui/material";
   import * as React from "react";
 import { useRef, useState } from "react";
+import { Route } from "react-router-dom";
+import { SideMenu } from "../side-menu/SideMenu";
 
   const btn = document.querySelector("#send");
   btn?.addEventListener("click", function(e){
@@ -30,6 +32,10 @@ import { useRef, useState } from "react";
     const [enderecoErro, setEnderecoErro]= useState(false)
     const [enderecoErroTexto, setEnderecoErroTexto]= useState('')
 
+    const att = () =>{
+      window.location.reload()
+    }
+
     const handleSubmit = (e) =>{
       e.preventDefault()
       if(nome.length < 8){
@@ -39,7 +45,6 @@ import { useRef, useState } from "react";
       }else{
         setNomeErro(false)
         setNomeErroTexto('')
-       
       }
 
       if(!email.includes(".com")){
@@ -59,8 +64,15 @@ import { useRef, useState } from "react";
         setEnderecoErro(false)
         setEnderecoErroTexto('')
       }
+      if(nome.length > 8 && email.includes(".com") && endereco.length > 40 && aniversario.length > 0){
+        console.log(nome, aniversario, endereco, email)
+        setTimeout(att, 1000)
+        return
+      }
     }
     return (
+      <>
+      <SideMenu></SideMenu>
      <div style={{marginTop:"20px", display:"flex",alignItems:"center", 
      flexFlow:"wrap",justifyContent:"space-between",
      width:"60%",marginLeft:"250px",
@@ -119,6 +131,7 @@ import { useRef, useState } from "react";
           </Button>
         </form>
       </div>
+      </>
     );
   }
   
