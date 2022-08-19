@@ -11,7 +11,7 @@ export const Home = () => {
   return (
     <>
     <SideMenu></SideMenu>
-    <Box sx={{ borderRadius:"10px",marginTop:0,width:650, display:"flex",alignItems:"center", 
+    <Box sx={{marginTop:0,width:650, display:"flex",alignItems:"center", 
      flexFlow:"wrap",justifyContent:"center",flexDirection:'column', marginLeft:40}}>
     <Typography variant="h3" sx={{ color:'white', textShadow:'1px 1px 0px black'}}>Seus exames </Typography>
     <Typography variant="h3" sx={{color:'white',textShadow:'1px 1px 0px black'}}>na <span style={{color:'#0094e0', textShadow:'1px 0px 0px #FFF'}}>nuvem</span></Typography>
