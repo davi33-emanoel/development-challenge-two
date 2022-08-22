@@ -4,8 +4,6 @@ import { useState } from 'react';
 import MedicalInformationIcon from '@mui/icons-material/MedicalInformation';
 import EditIcon from '@mui/icons-material/Edit';
 import MenuIcon from '@mui/icons-material/Menu';
-import { BrowserRouter, Route} from 'react-router-dom';
-import { Form } from '../form/Form';
 import Image from '../../../images/remove_background.png'
 
 export const MuiDrawer= () => {
