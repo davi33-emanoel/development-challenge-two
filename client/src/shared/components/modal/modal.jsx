@@ -15,6 +15,23 @@ export const Modal = ({id}) =>{
    const handleOpen = () =>{
     setOpen(!open)
    }
+   const handleClose = () => {
+    setOpen(false);
+    setTimeout(window.location.reload(), 100)
+  };
+   const [dados, setDados]= useState([])
+    React.useEffect(() =>{
+      axios.get(`http://localhost:5000/client/${id}`).then(({data}) =>{
+        setDados(data.Item)
+      });
+    },[]);
+    React.useEffect(() =>{
+      setName(dados.name)
+      setEmail(dados.email)
+      setAddress(dados.address)
+      setBirthdate(dados.birthdate)
+    },[dados]);
+   
    const [nome, setName]= useState('')
     const [nomeErro, setNameErro]= useState(false)
     const [nomeErroTexto, setNameErroTexto]= useState('')
@@ -28,7 +45,6 @@ export const Modal = ({id}) =>{
     const [endereco, setAddress]= useState('')
     const [enderecoErro, setAddressErro]= useState(false)
     const [enderecoErroTexto, setAddressErroTexto]= useState('')
-    
 
     const state ={
       name:nome,
@@ -36,7 +52,6 @@ export const Modal = ({id}) =>{
       birthdate:aniversario,
       address:endereco
     }
-
     const att = async() =>{
      try{
       axios.defaults.headers.put['Content-Type'] ='application/json;charset=utf-8';
@@ -78,11 +93,11 @@ export const Modal = ({id}) =>{
       }
       if(nome.length > 8 && email.includes(".com") && endereco.length > 40 && aniversario.length > 0){
         console.log(nome, aniversario, endereco, email)
-        setTimeout(att, 1000)
+        setTimeout(att, 100)
         return
       }
     }
-   console.log(id)
+
     return (
         <>
          <IconButton  sx={{color:'#0094e0'}} onClick={handleOpen}>
@@ -106,7 +121,9 @@ export const Modal = ({id}) =>{
             type="text"
             label="Nome completo"
             variant="outlined"
-          />
+            value = {nome}
+            
+          ></TextField>
           <br />
           <TextField
           required
@@ -117,6 +134,7 @@ export const Modal = ({id}) =>{
             variant="outlined"
             error={emailErro}
             helperText={emailErroTexto}
+            value = {email}
           />
           <br />
           <TextField
@@ -126,6 +144,7 @@ export const Modal = ({id}) =>{
             type="date"
             label="Aniversário"
             variant="outlined"
+            value = {aniversario}
           />
           <br />
           <TextField
@@ -138,13 +157,14 @@ export const Modal = ({id}) =>{
             variant="outlined"
             error={enderecoErro}
             helperText={enderecoErroTexto}
+            value = {endereco}
           />
           <br />
           <div style={{display:"flex", gap:"10px"}}>
           <Button variant="contained" type="submit" color="primary">
             Enviar Dados
           </Button>
-          <Button variant="contained" type="submit" color="primary" onClick={handleOpen}>
+          <Button variant="contained" type="button" color="primary" onClick={handleClose}>
             Cancelar
           </Button>
           </div>
