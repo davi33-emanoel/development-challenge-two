@@ -71,7 +71,6 @@ import axios from 'axios'
         setAddressErroTexto('')
       }
       if(nome.length > 8 && email.includes(".com") && endereco.length > 40 && aniversario.length > 0){
-        console.log(nome, aniversario, endereco, email)
         setTimeout(att, 1000)
         return
       }
