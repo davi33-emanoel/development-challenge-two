@@ -26,7 +26,7 @@ export const DataTable= () => {
 
   const delet = (id) =>{
     axios.delete(`http://localhost:5000/client/${id}`)
-    window.location.reload()
+    setTimeOut(window.location.reload(),5000)
   }
   return (
     <>
@@ -57,7 +57,7 @@ export const DataTable= () => {
               <TableCell align="inherit"sx={{width:200, wordBreak:'break-word'}}>{dado.address}</TableCell>
               <TableCell align="inherit" sx={{width:80,wordBreak:'break-word'}}>{dado.actions}
               <Modal id={dado.id}></Modal>
-              <IconButton sx={{color:'#0094e0'}} onClick={()=>{delet(dado.id)}}>
+              <IconButton sx={{color:'#0094e0'}} type="submit"onClick={()=>{delet(dado.id)}}>
                 <DeleteIcon></DeleteIcon>
                 </IconButton>
                 </TableCell>
