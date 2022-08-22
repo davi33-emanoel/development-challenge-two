@@ -8,7 +8,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
 import { SideMenu } from '../side-menu/SideMenu';
 import { useState } from 'react';
 import axios from 'axios';
