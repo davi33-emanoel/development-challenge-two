@@ -2,7 +2,6 @@ import React from "react";
 import { Routes, Route, Navigate,  } from "react-router-dom";
 import {Form} from '../shared/components/index';
 import {DataTable} from '../shared/components/list/List'
-import { SideMenu } from "../shared/components/index";
 import { Home } from "../shared/components/index";
 
 export const AppRoutes = () =>{
