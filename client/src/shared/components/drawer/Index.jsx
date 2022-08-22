@@ -15,11 +15,11 @@ export const MuiDrawer= () => {
     <MenuIcon />
     </IconButton>
         <Drawer anchor='left' open={isDrawerOpen} onClose={()=> setIsDrawerOpen(false)}>
-          <Box p={2} width='200px' textAlign='center' role='presentation' bgcolor={'#002137'}>
-          <Avatar sx={{height:120, width:120, display:'flex', left:30}} src={Image} component="a" href="/home" title="Home"></Avatar>
+          <Box p={2} width='210px' textAlign='center' role='presentation' bgcolor={'#002137'}>
+          <Avatar sx={{height:120, width:140, display:'flex', left:30}} src={Image} component="a" href="/home" title="Home"></Avatar>
           </Box>
           <Divider></Divider>
-          <Button variant="text" sx={{marginTop:1}} component="a" href="/add_user"><MedicalInformationIcon/> Cadastrar novo cliente</Button>
+          <Button variant="text" sx={{marginTop:1}} component="a" href="/add_user"><MedicalInformationIcon/>Cadastrar novo usuário</Button>
           <Divider></Divider>
           <Button variant="text" sx={{marginTop:1}} component="a" href="/view_users"><EditIcon></EditIcon> Editar Cadastro</Button>
           <Divider></Divider>

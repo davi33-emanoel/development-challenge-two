@@ -37,10 +37,10 @@ export const DataTable= () => {
         <TableHead>
           <TableRow>
             <TableCell align="inherit">Nome</TableCell>
-            <TableCell align="inherit">Aniversario</TableCell>
+            <TableCell align="inherit">Aniversário</TableCell>
             <TableCell align="inherit">Email</TableCell>
             <TableCell align="inherit">Edereço</TableCell>
-            <TableCell align="inherit">Actions</TableCell>
+            <TableCell align="inherit">Ações</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
