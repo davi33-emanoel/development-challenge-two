@@ -7,6 +7,13 @@ clientRouter.get('/clients', async (req, res) => {
    const body = await fetch('https://w4xf0uqrd3.execute-api.us-east-1.amazonaws.com/clients')
     return res.json(await body.json());
 })
+clientRouter.get('/client/:id', async (req, res) => {
+    const {id} = req.params;
+    const client = req.body;
+    console.log(id)
+    const body = await fetch(`https://w4xf0uqrd3.execute-api.us-east-1.amazonaws.com/client/${id}`, { method: 'get',headers: {'Content-Type': 'application/json'}})
+    return res.json(await body.json());
+})
 
 clientRouter.post('/client', async (req, res) => {
     const client = req.body;
